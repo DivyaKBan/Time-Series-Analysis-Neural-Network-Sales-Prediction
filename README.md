@@ -1,98 +1,231 @@
-# Time Series Analysis Neural Network Sales Prediction
+# 📈 Time Series Analysis Neural Network Sales Prediction
 
 <div align="center">
-<img src="imgs/poster.png" alt="Deep Temporal Demand Forecasting Banner" width="100%" style="max-width: 800px;">
+  <img src="Images/poster.png" alt="Deep Temporal Demand Forecasting Banner" width="100%" style="max-width: 800px;">
 </div>
 
-📌 Executive Summary
-Optimizing inventory is the backbone of modern retail operations. Accurate demand forecasting prevents costly stockouts and minimizes overstock depreciation. This project architectures an end-to-end predictive pipeline that ingests historical transactional data and utilizes advanced deep-sequence neural networks to forecast granular, item-level store demand.
+---
 
-By benchmarking traditional Machine Learning regressors against custom Hybrid Deep Learning architectures, this project establishes a robust framework for data-driven supply chain optimization.
+## 📌 Executive Summary
 
-🧰 Tech Stack
-Languages: Python
+- Optimizing inventory is the backbone of modern retail operations.
+- Accurate demand forecasting helps:
+  - Prevent costly stockouts
+  - Minimize overstock depreciation
 
-Deep Learning: TensorFlow, Keras (LSTM, CNN architectures)
+- This project builds an **end-to-end predictive pipeline** that:
+  - Ingests historical transactional data
+  - Uses deep sequence neural networks
+  - Forecasts item-level store demand
 
-Machine Learning: Scikit-learn, XGBoost
+- Key Highlight:
+  - Benchmarks traditional ML models vs advanced deep learning architectures
+  - Establishes a **data-driven supply chain optimization framework**
 
-Data Processing: Pandas, NumPy
+---
 
-Visualization: Matplotlib, Seaborn
+## 🧰 Tech Stack
 
-🎯 Strategic Objectives
-Algorithm Benchmarking: Compare the efficacy of baseline models (ARIMA, XGBoost, Random Forest) against complex sequential models (Bi-LSTM, CNN).
+- **Language**
+  - Python
 
-Hybrid Architecture Design: Develop a custom spatio-temporal neural network that extracts local patterns via convolutions and tracks sequential dependencies via recurrent layers.
+- **Deep Learning**
+  - TensorFlow
+  - Keras (LSTM, CNN)
 
-Operational Scalability: Deliver a model pipeline capable of scaling across multiple store locations and diverse SKUs.
+- **Machine Learning**
+  - Scikit-learn
+  - XGBoost
 
-📂 Data Architecture & Ingestion
-Source: Store Item Demand Forecasting Challenge (Kaggle).
+- **Data Processing**
+  - Pandas
+  - NumPy
 
-Scale & Scope: 5 years of daily transactional data (Jan 2013 - Dec 2017) encompassing 10 distinct retail locations and 50 unique items.
+- **Visualization**
+  - Matplotlib
+  - Seaborn
 
-Core Features: Date (Temporal anchor), Store_ID (Spatial anchor), Item_ID (Product anchor), Sales (Target variable).
+---
 
-⚙️ Data Engineering & Pipeline
-To ensure model robustness and prevent data leakage, the following preprocessing steps were implemented:
+## 🎯 Strategic Objectives
 
-Temporal Feature Extraction: Converted raw date strings into discrete ordinal features to capture seasonality and trend mechanics.
+- **Algorithm Benchmarking**
+  - Compare:
+    - ARIMA
+    - XGBoost
+    - Random Forest  
+  - Against:
+    - Bi-LSTM
+    - CNN
 
-Categorical Encoding: Applied label encoding for non-ordinal identifiers (Store_ID, Item_ID).
+- **Hybrid Architecture Design**
+  - Combine:
+    - CNN → Extract local patterns
+    - LSTM → Capture temporal dependencies
 
-Quality Assurance: Validated dataset integrity (zero nulls, zero duplicate records).
+- **Operational Scalability**
+  - Build a pipeline scalable across:
+    - Multiple stores
+    - Multiple SKUs
 
-Sequential Splitting: Executed a strict chronological train/test split (75/25) to simulate real-world forecasting conditions and prevent look-ahead bias.
+---
 
-🧠 Model Architecture & Methodology
-The project explores a spectrum of algorithms, graduating from foundational ML to deep sequence models:
+## 📂 Data Architecture & Ingestion
 
-1. Baseline Estimators:
+- **Source**
+  - Kaggle
 
-Random Forest Regressor & XGBoost
+- **Scale & Scope**
+  - 5 years of data (Jan 2013 – Dec 2017)
+  - 10 stores
+  - 50 items
 
-Artificial Neural Networks (ANN) & standard Convolutional Neural Networks (CNN)
+- **Core Features**
+  - `Date` → Temporal anchor
+  - `Store_ID` → Spatial anchor
+  - `Item_ID` → Product anchor
+  - `Sales` → Target variable
 
-ARIMA (Statistical baseline)
+---
 
-2. Advanced Temporal Networks:
+## ⚙️ Data Engineering & Pipeline
 
-Long Short-Term Memory (LSTM)
+- **Temporal Feature Extraction**
+  - Converted date into:
+    - Day
+    - Month
+    - Year
+  - Captures seasonality and trends
 
-Bidirectional LSTM (Bi-LSTM)
+- **Categorical Encoding**
+  - Label encoding applied to:
+    - Store_ID
+    - Item_ID
 
-3. Custom Hybrid Architectures (Proprietary Models):
+- **Quality Assurance**
+  - Zero null values
+  - Zero duplicate records
 
-LSTM + CNN Pipeline: Convolutions extract spatial/local features from the data vector, which are then passed into LSTM layers to learn temporal dependencies over the forecast horizon.
+- **Sequential Splitting**
+  - Train/Test split: **75/25**
+  - Chronological split to:
+    - Avoid data leakage
+    - Simulate real-world forecasting
 
-BiLSTM + CNN Pipeline: Encapsulates the LSTM layers in a Bidirectional wrapper, allowing the network to learn context from both past and future data states during training, heavily refining the final dense layer output.
+---
 
-Hyperparameters: Hand-tuned with an optimized batch size of 256.
+## 🧠 Model Architecture & Methodology
+
+### 1️⃣ Baseline Models
+
+- Random Forest Regressor
+- XGBoost
+- Artificial Neural Network (ANN)
+- Convolutional Neural Network (CNN)
+- ARIMA (Statistical baseline)
+
+---
+
+### 2️⃣ Advanced Temporal Models
+
+- Long Short-Term Memory (LSTM)
+- Bidirectional LSTM (Bi-LSTM)
+
+---
+
+### 3️⃣ Custom Hybrid Architectures
+
+#### 🔹 LSTM + CNN Pipeline
+- CNN extracts spatial/local features
+- LSTM learns temporal dependencies
+
+#### 🔹 BiLSTM + CNN Pipeline
+- Uses bidirectional learning:
+  - Past context
+  - Future context
+- Produces highly refined predictions
+
+---
+
+### ⚡ Hyperparameters
+
+- Batch size: **256**
+- Tuned manually for optimal performance
+
+---
 
 <div align="center">
-<img src="imgs/model.png" alt="Hybrid Model Architecture Diagram" width="50%" style="max-width: 1000px;">
+  <img src="Images/model.png" alt="Hybrid Model Architecture Diagram" width="50%" style="max-width: 1000px;">
 </div>
 
+---
 
-📊 Performance & Key Findings
-Models were strictly evaluated using Mean Squared Error (MSE) to heavily penalize large forecasting deviations, which represent severe supply chain failures (massive overstock or total stockouts).
+## 📊 Performance & Key Findings
 
-Baseline Evaluation
+- **Evaluation Metric**
+  - Mean Squared Error (MSE)
+  - Penalizes large prediction errors heavily
+
+---
+
+### 📉 Baseline Model Results
+
 <div align="center">
-<img src="imgs/baseline pic.png" alt="Baseline Model MSE Chart" width="80%" style="max-width: 800px;">
+  <img src="Images/baseline pic.png" alt="Baseline Model MSE Chart" width="80%" style="max-width: 800px;">
 </div>
-Among the baseline estimators, the standalone CNN achieved the lowest MSE, successfully capturing local data patterns, outperforming both XGBoost and the multi-layer perceptron (ANN).
 
-Deep Sequence Evaluation
+- Key Insight:
+  - CNN outperformed:
+    - XGBoost
+    - ANN
+  - Successfully captured local data patterns
+
+---
+
+### 📈 Deep Learning Model Results
+
 <div align="center">
-<img src="imgs/time series model res.png" alt="Time Series Model Results" width="80%" style="max-width: 800px;">
+  <img src="Images/time series model res.png" alt="Time Series Model Results" width="80%" style="max-width: 800px;">
 </div>
-The integration of sequential memory yielded significant improvements. The custom BiLSTM-CNN hybrid achieved the state-of-the-art performance for this dataset, closely followed by the standalone Bi-LSTM. The bidirectional context proved critical for minimizing error margins across volatile sales periods.
 
-🔭 Limitations & Future Scope
-While the hybrid model achieved high accuracy, the current dataset relies purely on historical sales. Future iterations of this pipeline will incorporate:
+- Key Insights:
+  - Sequential models improved accuracy significantly
+  - **Best Model:** BiLSTM + CNN Hybrid
+  - Second Best: Bi-LSTM
+  - Bidirectional learning reduced errors in volatile sales periods
 
-Exogenous Regressors: Integrating macroeconomic indicators, local weather data, and holiday calendars to explain sudden demand spikes.
+---
 
-Granular Clustering: Applying K-Means to cluster stores by geographical behavior before feeding data into the neural network to reduce global noise.
+## 🔭 Limitations & Future Scope
+
+- Current limitation:
+  - Uses only historical sales data
+
+---
+
+### 🚀 Future Improvements
+
+- **Exogenous Features**
+  - Add:
+    - Weather data
+    - Holidays
+    - Economic indicators
+
+- **Clustering Approach**
+  - Use K-Means to:
+    - Group stores by behavior
+    - Reduce noise before training
+
+---
+
+## 💡 Conclusion
+
+- Hybrid deep learning models outperform traditional ML models in time series forecasting
+- BiLSTM + CNN provides:
+  - Better temporal understanding
+  - Improved prediction accuracy
+- Strong potential for real-world retail and supply chain optimization
+
+---
+
+## ⭐ If you found this useful, consider giving this repo a star!
